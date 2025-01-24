@@ -27,4 +27,14 @@ public class AudioSetting : MonoBehaviour
         isLocked = true;
 
     }
+
+
+
+
+
+
 }
+
+
+
+
