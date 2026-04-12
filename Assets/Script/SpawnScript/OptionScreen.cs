@@ -32,11 +32,11 @@ public class OptionScreen : MonoBehaviour
         filterResolutions = new List<Resolution>();
 
         resolutionDropDown.ClearOptions();
-        currentRefreshRate = Screen.currentResolution.refreshRate;
+        var currentRefreshRate = Screen.currentResolution.refreshRateRatio;
 
         for(int i = 0; i < resolutions.Length; i++)
         {
-            if (resolutions[i].refreshRate == currentRefreshRate)
+            if (resolutions[i].refreshRateRatio.Equals(currentRefreshRate))
             {
                 filterResolutions.Add(resolutions[i]);
             }

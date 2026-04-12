@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 8948909054704458952}
   - component: {fileID: 3215827939997490906}
   - component: {fileID: 6760731379175210992}
+  - component: {fileID: 3131982889386534059}
   m_Layer: 5
   m_Name: GameChat
   m_TagString: Untagged
@@ -294,6 +295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chatText: {fileID: 6391918210453263707}
   inputField: {fileID: 8661666726248016135}
+  gameChatCanvasGroup: {fileID: 3131982889386534059}
+  chatDisplayDuration: 5
 --- !u!114 &6760731379175210992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +319,18 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!225 &3131982889386534059
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106453960027792440}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &4524987437156667476
 GameObject:
   m_ObjectHideFlags: 0

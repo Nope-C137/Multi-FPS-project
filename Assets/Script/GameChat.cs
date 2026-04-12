@@ -9,13 +9,20 @@ public class GameChat : MonoBehaviour
 {
     public TextMeshProUGUI chatText;
     public TMP_InputField inputField;
-
+    public CanvasGroup gameChatCanvasGroup;
+    public float chatDisplayDuration = 5f;
 
     private bool isInputFieldToggLed;
 
     void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            gameChatCanvasGroup.alpha = 1;
+
+            StartCoroutine(DisableGameChat());
+        }
 
         if (Input.GetKeyDown(KeyCode.Y) && !isInputFieldToggLed)
         {
@@ -59,5 +66,12 @@ public class GameChat : MonoBehaviour
     public void SendChatMessages(string _message)
     {
         chatText.text = chatText.text + "\n" + _message;
+    }
+
+    IEnumerator DisableGameChat()
+    {
+
+        yield return new WaitForSeconds(chatDisplayDuration);
+        gameChatCanvasGroup.alpha = 0;
     }
 }

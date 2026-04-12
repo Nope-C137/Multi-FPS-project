@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Pun.Demo.Asteroids;
 using Photon.Pun.UtilityScripts;
 using System.Collections;
 using System.Collections.Generic;
@@ -136,36 +137,36 @@ public class Weapon : MonoBehaviour
 
         playerPhotonSounds.PlayShootSFX(shootSFXIndex);
 
-        for (int i = 0; i < pelletCount;i++)
+        for (int i = 0; i < pelletCount; i++)
         {
             Vector3 sprayOffset = (Vector3)(Random.insideUnitCircle * sprayMultiplier);
             sprayOffset.z = 0;
 
-            Ray ray = new Ray(origin: cameraa.transform.position, direction: cameraa.transform.forward + sprayOffset);
+            Ray ray = new Ray(cameraa.transform.position, cameraa.transform.forward + sprayOffset);
 
             RaycastHit hit;
 
-            //PhotonNetwork.LocalPlayer.AddScore(1);
-
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, maxDistance: 100f))
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, 100f))
             {
                 PhotonNetwork.Instantiate(hitVFX.name, hit.point, Quaternion.identity);
 
                 if (hit.transform.gameObject.GetComponent<Health>())
                 {
-                    //PhotonNetwork.LocalPlayer.AddScore(damage);
+                    if (hit.transform.CompareTag("Player"))
+                        return;
 
                     if (damage >= hit.transform.gameObject.GetComponent<Health>().health)
                     {
-                        //Kill
+                        if (hit.transform.CompareTag("Enemy"))
+                        {
+                            RoomManager.instance.kills++;
+                            RoomManager.instance.SetHashes();
 
-                        RoomManager.instance.kills++;
-                        RoomManager.instance.SetHashes();
-
-                        PhotonNetwork.LocalPlayer.AddScore(100);
+                            PhotonNetwork.LocalPlayer.AddScore(100);
+                        }
                     }
 
-                    hit.transform.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
+                    hit.transform.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
                 }
             }
         }

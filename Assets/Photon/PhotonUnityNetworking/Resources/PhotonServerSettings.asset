@@ -54,6 +54,8 @@ MonoBehaviour:
   - ChasePlayer
   - DestroyEnemy
   - TakeDamge
+  - ChangeNickname
+  - StartCountdown
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

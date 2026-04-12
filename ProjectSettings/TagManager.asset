@@ -8,6 +8,8 @@ TagManager:
   - sound
   - bullet
   - battarang
+  - enemy
+  - weapon
   layers:
   - Default
   - TransparentFX

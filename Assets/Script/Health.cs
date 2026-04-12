@@ -15,7 +15,6 @@ public class Health : MonoBehaviour
 
     private float originalHealthBarSize;
 
-
     [Header("UI")]
     public TextMeshProUGUI healthText;
     public GameObject gotHitScreen;
@@ -66,13 +65,15 @@ public class Health : MonoBehaviour
 
             if (isLocalPlayer) 
             {
-                RoomManager.instance.RespawnPlayer();
+                //RoomManager.instance.RespawnPlayer();
+                RoomManager.instance.PlayerDeath();
 
                 RoomManager.instance.deaths++;
                 RoomManager.instance.SetHashes();
             }
 
             Destroy(gameObject);
+            //Time.timeScale = 0f;
         }
     }
 
@@ -86,7 +87,13 @@ public class Health : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "battarang")
+        if (collision.gameObject.tag == "weapon")
+        {
+            TakeDamage(15);
+            Debug.Log("PlayerDamage");
+        }
+
+        if (collision.gameObject.tag == "enemy")
         {
             TakeDamage(15);
             Debug.Log("PlayerDamage");

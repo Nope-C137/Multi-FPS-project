@@ -16955,7 +16955,7 @@ MonoBehaviour:
   animations: {fileID: 2919997253344899683}
   reload: {fileID: 7400000, guid: 36d3818521c9645439ad7dd2192a82b0, type: 2}
   recoverPercent: 0.7
-  recoilUp: 0.1
+  recoilUp: 0.5
   recoilBack: 1
 --- !u!114 &2847074418819157358
 MonoBehaviour:
@@ -30738,7 +30738,7 @@ MonoBehaviour:
   amoCricle: {fileID: 5168899219086312051}
   damage: 10
   pelletCount: 1
-  sprayMultiplier: 0.05
+  sprayMultiplier: 0.6
   cameraa: {fileID: 8549438857458049569}
   fireRate: 10
   hitVFX: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
@@ -31912,7 +31912,7 @@ MonoBehaviour:
   amoCricle: {fileID: 5168899219086312051}
   damage: 25
   pelletCount: 1
-  sprayMultiplier: 0.1
+  sprayMultiplier: 0.5
   cameraa: {fileID: 8549438857458049569}
   fireRate: 12
   hitVFX: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}

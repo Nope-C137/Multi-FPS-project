@@ -24,9 +24,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public GameObject timer;
 
-    public GameObject gameLeaderBoard;
-
     public GameObject audioSetting;
+
+    public GameObject gameLeaderBoard;
 
     private string nickName = "Unnamed";
 
@@ -65,7 +65,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         roomCam.SetActive(false);
         timer.SetActive(true);
-        gameLeaderBoard.SetActive(true);
 
         RespawnPlayer();
 
@@ -81,6 +80,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         _player.GetComponent<PhotonView>().RPC("SetNickName", RpcTarget.AllBuffered, nickName);
         PhotonNetwork.LocalPlayer.NickName = nickName;
+    }
+
+    public void PlayerDeath()
+    {
+        gameLeaderBoard.SetActive(true);
     }
 
     public void SetHashes()
